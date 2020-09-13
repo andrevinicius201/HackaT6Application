@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.teste.hackasafra.R;
 import com.teste.hackasafra.adapter.AdapterInsurance;
@@ -25,6 +27,8 @@ public class HireInsuranceActivity extends AppCompatActivity {
     private Button buttonHomeBottom;
     private Button buttonCollectionBottom;
     private Button buttonBack;
+    private Button buttonHire;
+    private int stickers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,11 @@ public class HireInsuranceActivity extends AppCompatActivity {
         buttonBack = findViewById(R.id.buttonBack);
         buttonCollectionBottom = findViewById(R.id.buttonCollectionBottom2);
         buttonHomeBottom = findViewById(R.id.buttonHomeBottom2);
+        buttonHire = findViewById(R.id.buttonHire);
+
+        // Get sent data
+        Bundle data = getIntent().getExtras();
+        stickers = data.getInt("stickers");
 
         // List of Insurance
         this.createInsurance();
@@ -58,6 +67,12 @@ public class HireInsuranceActivity extends AppCompatActivity {
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent();
+                intent.putExtra("stickers", stickers);
+
+                setResult(RESULT_OK, intent);
+
                 finish();
             }
         });
@@ -65,7 +80,8 @@ public class HireInsuranceActivity extends AppCompatActivity {
         buttonHomeBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent intent = new Intent ( getApplicationContext(), MainActivity.class );
+                startActivity( intent );
             }
         });
 
@@ -76,6 +92,19 @@ public class HireInsuranceActivity extends AppCompatActivity {
                 Intent intent = new Intent( getApplicationContext(), SafraCollectionActivity.class);
                 startActivity( intent );
 
+            }
+        });
+
+        buttonHire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                stickers += 4;
+
+                Toast.makeText(
+                        getApplicationContext(),
+                        Html.fromHtml("<font color='#374281' ><b>" + "Você ganhou 4 figurinhas" + "</b></font>"),
+                        Toast.LENGTH_SHORT
+                ).show();
             }
         });
     }

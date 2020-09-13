@@ -10,6 +10,9 @@
     <string name="date">Data</string>
     <string name="value">Valor</string>
     <string name="stickers">Figurinhas</string>
+    <string name="success">Sucesso</string>
+    <string name="email">teste.teste@email.com</string>
+    <string name="token_error">Token error</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

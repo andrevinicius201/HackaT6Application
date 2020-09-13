@@ -30,6 +30,7 @@ public class SafraLoginActivity extends AppCompatActivity {
                 startActivity( intent );
             }
         });
+
     }
 
 }

@@ -5,11 +5,13 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -25,6 +27,11 @@ public class DebitsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerDebits;
     private List<Debits> listDebits = new ArrayList<>();
+    private Button buttonBack;
+    private Button buttonHome;
+    private Button buttonCollection;
+    private Button buttonDebits;
+    private int stickers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +44,14 @@ public class DebitsActivity extends AppCompatActivity {
 
         // Find view by ID
         recyclerDebits = findViewById(R.id.recyclerDebits);
+        buttonBack = findViewById(R.id.buttonBack2);
+        buttonHome = findViewById(R.id.buttonHomeBottom3);
+        buttonCollection = findViewById(R.id.buttonCollectionBottom3);
+        buttonDebits = findViewById(R.id.buttonDebitsBottom3);
+
+        // Get sent data
+        Bundle data = getIntent().getExtras();
+        stickers = data.getInt("stickers");
 
         // List of debits
         this.createDebits();
@@ -47,11 +62,11 @@ public class DebitsActivity extends AppCompatActivity {
         // Recycler View configurations
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager( getApplicationContext() );
         recyclerDebits.setLayoutManager( layoutManager );
-        recyclerDebits.setHasFixedSize( true ); // Determina que há um tamanho fixo
-        recyclerDebits.addItemDecoration( new DividerItemDecoration( this, LinearLayout.VERTICAL )); // Cria divisor vertical
+        recyclerDebits.setHasFixedSize( true ); // Determine fixed size
+        recyclerDebits.addItemDecoration( new DividerItemDecoration( this, LinearLayout.VERTICAL )); // Creates a vertical divisor
         recyclerDebits.setAdapter( adapterDebits );
 
-        // Configurar Evento de Clique
+        // Configure Click Event
         recyclerDebits.addOnItemTouchListener(
                 new RecyclerItemClickListener(
                         getApplicationContext(),
@@ -61,12 +76,14 @@ public class DebitsActivity extends AppCompatActivity {
                             public void onItemClick(View view, int position) {
                                 Debits debit = listDebits.get( position );
 
+                                stickers += 2;
+
                                 debit.setStatus("Aprovado");
                                 adapterDebits.notifyItemChanged( position );
+
                                 Toast.makeText(
                                         getApplicationContext(),
                                         Html.fromHtml("<font color='#374281' ><b>" + "Você ganhou 2 figurinhas" + "</b></font>"),
-                                        //"Você ganhou 2 figurinhas",
                                         Toast.LENGTH_SHORT
                                 ).show();
                             }
@@ -83,6 +100,43 @@ public class DebitsActivity extends AppCompatActivity {
                         }
                 )
         );
+
+        // Action methods for button click
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.putExtra("stickers", stickers);
+
+                setResult(RESULT_OK, intent);
+
+                finish();
+            }
+        });
+
+        buttonHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( getApplicationContext(), MainActivity.class );
+                startActivity( intent );
+            }
+        });
+
+        buttonCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent ( getApplicationContext(), SafraCollectionActivity.class );
+                startActivity( intent );
+            }
+        });
+
+        buttonDebits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( getApplicationContext(), DebitsActivity.class );
+                startActivity( intent );
+            }
+        });
     }
 
     // Method used for list the insurances

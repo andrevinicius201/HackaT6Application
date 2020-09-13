@@ -80,6 +80,80 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline21"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/guideline19"
-        app:layout_constraintTop_toTopOf="@+id/guideline24" />
+        app:layout_constraintTop_toTopOf="@+id/guideline24">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Button
+        android:id="@+id/buttonBack2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/left_arrow"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHomeBottom3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:background="@drawable/browser"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+
+    <TextView
+        android:id="@+id/textHomeBottom3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/home"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHomeBottom3"
+        app:layout_constraintStart_toStartOf="@+id/buttonHomeBottom3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHomeBottom3" />
+
+    <Button
+        android:id="@+id/buttonCollectionBottom3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:background="@drawable/geometric_figures"
+        app:layout_constraintStart_toStartOf="@+id/guideline20"
+        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+
+    <TextView
+        android:id="@+id/textCollectionBottom3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/collection"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCollectionBottom3"
+        app:layout_constraintStart_toStartOf="@+id/buttonCollectionBottom3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCollectionBottom3" />
+
+    <Button
+        android:id="@+id/buttonDebitsBottom3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@drawable/paper"
+        app:layout_constraintEnd_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+
+    <TextView
+        android:id="@+id/textDebitsBottom3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/debit"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonDebitsBottom3"
+        app:layout_constraintStart_toStartOf="@+id/buttonDebitsBottom3"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDebitsBottom3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
