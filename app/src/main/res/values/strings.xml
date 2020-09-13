@@ -16,4 +16,19 @@
     <string name="home">Home</string>
     <string name="collection">Collection</string>
     <string name="receipt">Comprovantes</string>
+    <string name="stickers_amount">Saldo de figurinhas</string>
+    <string name="month_prize">Premiação do Mês</string>
+    <string name="insurance_protection">Proteja seu imóvel e tudo o que ele significa para você</string>
+    <string name="hire">Contratar</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="debit">Débitos</string>
+    <string name="status">Status</string>
 </resources>

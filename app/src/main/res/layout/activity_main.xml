@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.375" />
+        app:layout_constraintGuide_percent="0.40" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
@@ -279,7 +279,7 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonCollectionBottom" />
 
     <Button
-        android:id="@+id/buttonReceiptBottom"
+        android:id="@+id/buttonDebitsBottom"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="32dp"
@@ -293,10 +293,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/receipt"
+        android:text="@string/debit"
         android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonReceiptBottom"
-        app:layout_constraintStart_toStartOf="@+id/buttonReceiptBottom"
-        app:layout_constraintTop_toBottomOf="@+id/buttonReceiptBottom" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonDebitsBottom"
+        app:layout_constraintStart_toStartOf="@+id/buttonDebitsBottom"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDebitsBottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

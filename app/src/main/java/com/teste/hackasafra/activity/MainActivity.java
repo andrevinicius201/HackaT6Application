@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.teste.hackasafra.R;
@@ -15,10 +18,14 @@ import com.teste.hackasafra.model.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity<buttonColection> extends AppCompatActivity {
 
     private RecyclerView recyclerStatement;
     private List<Statement> listStatement = new ArrayList<>();
+    private Button buttonCollection;
+    private Button buttonCollectionBottom;
+    private Button buttonInsurance;
+    private Button buttonDebits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
         setTitle("MENU PRINCIPAL"); // Set a title
         //getActionBar().setIcon(R.drawable.); // Set an Icon
 
+        // Find view by ID
         recyclerStatement = findViewById(R.id.recyclerStatement);
+        buttonCollection = findViewById(R.id.buttonCollection);
+        buttonCollectionBottom = findViewById(R.id.buttonCollectionBottom);
+        buttonInsurance = findViewById(R.id.buttonInsurance);
+        buttonDebits = findViewById(R.id.buttonDebitsBottom);
 
         // List of Statements
         this.createStatement();
@@ -44,6 +56,53 @@ public class MainActivity extends AppCompatActivity {
         recyclerStatement.setHasFixedSize( true ); // Determina que há um tamanho fixo
         recyclerStatement.addItemDecoration( new DividerItemDecoration( this, LinearLayout.VERTICAL )); // Cria divisor vertical
         recyclerStatement.setAdapter( adapterStatement );
+
+        // Action method for the button click
+        buttonCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Intent determine which activity this action will show
+                Intent intent = new Intent ( getApplicationContext(), SafraCollectionActivity.class );
+
+                startActivity( intent );
+
+            }
+        });
+
+        buttonCollectionBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Intent determine which activity this action will show
+                Intent intent = new Intent ( getApplicationContext(), SafraCollectionActivity.class );
+
+                startActivity( intent );
+
+            }
+        });
+
+        buttonInsurance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Intent determine which activity this action will show
+                Intent intent = new Intent ( getApplicationContext(), HireInsuranceActivity.class );
+
+                startActivity( intent );
+
+            }
+        });
+
+        buttonDebits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent ( getApplicationContext(), DebitsActivity.class );
+
+                startActivity( intent );
+            }
+        });
     }
 
     // Method used for list the statements
